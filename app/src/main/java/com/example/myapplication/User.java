@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import java.util.List;
+
 public class User {
     public String getNum() {
         return num;
@@ -9,7 +11,7 @@ public class User {
         this.num = num;
     }
 
-    String num;
+
 
     public String getName() {
         return name;
@@ -19,7 +21,7 @@ public class User {
         this.name = name;
     }
 
-    String name;
+
 
     public String getTime() {
         return time;
@@ -29,7 +31,6 @@ public class User {
         this.time = time;
     }
 
-    String time;
 
     public String getEmail() {
         return email;
@@ -39,13 +40,6 @@ public class User {
         this.email = email;
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
 
     public String getDesignation() {
         return designation;
@@ -54,19 +48,18 @@ public class User {
     public void setDesignation(String designation) {
         this.designation = designation;
     }
-
+    String name;
+    String time;
     String email;
-    String code;
     String designation;
+    String num;
 
-
-    public User(String num, String user, String time, String email, String code, String designation)
+    public User(String num, String user, String time, String email, String designation)
     {
         this.num=num;
         this.name=user;
         this.time=time;
         this.email=email;
-        this.code=code;
         this.designation=designation;
     }
     public  User()

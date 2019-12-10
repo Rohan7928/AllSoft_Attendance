@@ -1,18 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/time"
-    android:hint="time"></TextView><TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/username"
-    android:hint="name"></TextView><TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/number"
-    android:hint="num"></TextView>
+    android:layout_height="wrap_content">
+
+
+
+    <androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+
+            android:layout_marginTop="-10dp"
+            android:background="@drawable/waves" />
+
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_email"
+        android:textColor="@color/black"
+        android:fontFamily="@font/supercreative"
+        android:textSize="@dimen/text_20sp"
+        android:drawableLeft="@drawable/ic_email_black"
+        android:layout_below="@id/txt_num"
+        android:drawablePadding="@dimen/text_20sp"
+        android:hint="Email"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_num"
+        android:drawableLeft="@drawable/ic_phone"
+        android:textColor="@color/black"
+        android:drawablePadding="@dimen/text_20sp"
+        android:fontFamily="@font/supercreative"
+        android:textSize="@dimen/text_20sp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/txt_name"
+        android:hint="Number"></TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_name"
+        android:textColor="@color/black"
+        android:fontFamily="@font/supercreative"
+        android:textSize="@dimen/text_20sp"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:hint="Name"></TextView>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="@dimen/text_20sp"
+        android:id="@+id/btn_checkAttendance"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:layout_marginRight="@dimen/text_20sp"
+
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:background="@drawable/roundbutton"
+        android:fontFamily="@font/supercreative"
+        android:textSize="18sp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/txt_email"
+        android:text="Attendance"></Button>
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:id="@+id/img_call"
+
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_phone"
+            android:layout_below="@id/txt_email"
+            android:layout_alignParentRight="true"></ImageView>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
+
 </LinearLayout>

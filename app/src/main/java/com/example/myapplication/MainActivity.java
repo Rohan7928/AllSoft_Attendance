@@ -7,20 +7,25 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -30,14 +35,18 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.List;
 
+import static android.graphics.Color.*;
+
 public class MainActivity extends AppCompatActivity {
 
 FirebaseFirestore fb;
+FirebaseAuth auth;
     RecyclerView recyclerView;
     ViewStatusAdapter viewStatusAdapter;
     TextView id;
     ProgressDialog progressDialog;
-    String iid="";
+    String mobileno,iid,randomid;
+  LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,17 +55,21 @@ FirebaseFirestore fb;
         viewStatusAdapter=new   ViewStatusAdapter(this);
         recyclerView = findViewById(R.id.lit_view);
         id=findViewById(R.id.deviceid);
+        linearLayout=findViewById(R.id.linear);
         progressDialog = new ProgressDialog(this,R.style.MyAlertDialogStyle);
         progressDialog.setTitle("Uploading Attendance...");
         progressDialog.setCancelable(false);
-
         progressDialog.setCanceledOnTouchOutside(false);
         fb=FirebaseFirestore.getInstance();
+        auth=FirebaseAuth.getInstance();
         RecyclerView.LayoutManager manager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(viewStatusAdapter);
 
-                 iid= Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
+       Intent intent=getIntent();
+         mobileno=intent.getStringExtra("Authorize_d");
+         randomid=intent.getStringExtra("Rando_m");
+                iid= Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
                 id.setText(iid);
                 try {
                     getsavedata();
@@ -66,32 +79,24 @@ FirebaseFirestore fb;
                     Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
 
-       /*
-        fb.collection("Device").get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        QuerySnapshot documentSnapshot=task.getResult();
-                        List<Student> userDataR=documentSnapshot.toObjects(Student.class);
+    }
 
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-
-            }
-        });*/
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(getApplicationContext(),Admin_Option.class);
+        startActivity(intent);
+        Animatoo.animateFade(MainActivity.this);
+        finish();
     }
 
     private void getsavedata() {
-
         if (iid.isEmpty()) {
             Toast.makeText(this, "Enter Device First", Toast.LENGTH_SHORT).show();
 
         }
         else
         {
-            fb.collection("Device").document(iid).collection("Time")
+            fb.collection("Employee").document(mobileno).collection("ID").orderBy("num", Query.Direction.DESCENDING)
                     .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -103,13 +108,17 @@ FirebaseFirestore fb;
                                 viewStatusAdapter.notifyDataSetChanged();
                             }
                         }else {
-                                Toast.makeText(MainActivity.this, "wait", Toast.LENGTH_SHORT).show();
-                                //Log.e("subject ", subjects.sub_name);
+                           Snackbar snackbar=Snackbar.make(linearLayout,"No Attendance Marked Yet",Snackbar.LENGTH_LONG);
+                            View snackbarView = snackbar.getView();
+                            snackbarView.setBackgroundColor(Color.parseColor("#FFB0D9B9"));
+                           snackbar.show();
+                                //Toast.makeText(MainActivity.this, "No Attendance Marked Yet", Toast.LENGTH_SHORT).show();
                             }
 
                     }
                 }
             });
         }
+
     }
 }

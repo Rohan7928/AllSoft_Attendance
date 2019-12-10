@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,7 +13,11 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 class ViewStatusAdapter extends RecyclerView.Adapter<ViewStatusAdapter.Myholder>{
     ArrayList<Student> sub_list=new ArrayList<>();
@@ -35,12 +40,25 @@ class ViewStatusAdapter extends RecyclerView.Adapter<ViewStatusAdapter.Myholder>
         final Student teacherstatus=sub_list.get(position);
         myholder.txtloc.setText(teacherstatus.log);
         myholder.txttime.setText(String.valueOf(teacherstatus.num));
+        myholder.txtadd.setText(teacherstatus.address);
+        myholder.txtid.setText(teacherstatus.id);
+        myholder.txttype.setText(teacherstatus.type);
+        myholder.txtname.setText(teacherstatus.name);
+        Picasso.get().load(teacherstatus.getProfileurl()).into(myholder.circleImageView);
+
         myholder.cardView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                Intent intent=new Intent(context,Detail.class);
+                Intent intent=new Intent(context,Information.class);
                 intent.putExtra("location",teacherstatus.log);
                 intent.putExtra("time",teacherstatus.num);
+                intent.putExtra("Address",teacherstatus.address);
+                intent.putExtra("Id",teacherstatus.id);
+                intent.putExtra("Type",teacherstatus.type);
+                intent.putExtra("Name",teacherstatus.name);
+                intent.putExtra("Photo",teacherstatus.getProfileurl());
+
+
                 context.startActivity(intent);
                                 return false;
             }
@@ -58,15 +76,19 @@ class ViewStatusAdapter extends RecyclerView.Adapter<ViewStatusAdapter.Myholder>
     }
 
     public class Myholder extends RecyclerView.ViewHolder {
-        TextView txttime,txtloc,txttime1,txtloc1;
+        TextView txttime,txtloc,txtid,txtadd,txttype,txtname;
+        ImageView circleImageView;
      CardView cardView,cardView1;
         public Myholder(@NonNull View itemView) {
             super(itemView);
-
+            txtadd=itemView.findViewById(R.id.txt_address);
             txttime=itemView.findViewById(R.id.txt_time);
             txtloc=itemView.findViewById(R.id.txt_loc);
-
+            txtid=itemView.findViewById(R.id.txt_id);
             cardView=itemView.findViewById(R.id.card);
+            txttype=itemView.findViewById(R.id.type);
+            circleImageView=itemView.findViewById(R.id.show_photo);
+            txtname=itemView.findViewById(R.id.name);
            }
     }
 }

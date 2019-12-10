@@ -9,26 +9,38 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainPAge"> <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
-        <activity android:name=".Login"></activity>
-        <activity android:name=".ADMIN">
-
-        </activity>
+        <activity android:name=".Information"></activity>
+        <activity android:name=".HomePage" />
+        <activity android:name=".View_Attendance" />
+        <activity android:name=".Employee_list" />
+        <activity android:name=".Show_Attend" />
+        <activity android:name=".User_Otpverify" />
+        <activity android:name=".OTP_Verify" />
+        <activity android:name=".Verify_NO" />
+        <activity android:name=".Admin_Option" />
+        <activity android:name=".Login" />
+        <activity android:name=".ADMIN" />
         <activity android:name=".Detail" />
-        <activity android:name=".flash_activity" />
-        <activity android:name=".Main2Activity" />
+        <activity android:name=".flash_activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".find" />
+        <activity android:name=".UserList" />
+        <activity android:name=".Post.PostData" />
     </application>
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
 </manifest>
