@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,7 +30,7 @@ import java.util.Random;
 
 public class Admin_Option extends AppCompatActivity implements View.OnClickListener {
 
-   Button checkattendnace,addtrainer,exit,emplist,markattendance;
+   Button checkattendnace,addtrainer,exit,emplist,markattendance,leave,shsheet;
    FirebaseAuth auth;
    String number,name;
     String user,mobilno,generatedPassword;
@@ -37,6 +38,8 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
    FirebaseUser firebaseUser;
     String user_name, user_number,current;
    TextView admin;
+   CardView card_1,card_2,card_3,card_4,card_5;
+   ProgressDialog progressDialog;
 
     @Override
     public void onBackPressed() {
@@ -47,23 +50,38 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin__option);
+        progressDialog = new ProgressDialog(this, R.style.CustomDialogTheme);
+        progressDialog.setTitle("Please wait for a sec...");
+        progressDialog.setCancelable(false);
+        progressDialog.setCanceledOnTouchOutside(false);
         auth=FirebaseAuth.getInstance();
         firebaseUser=auth.getCurrentUser();
         current=firebaseUser.getPhoneNumber();
         exit=findViewById(R.id.bt_log);
+        card_1=findViewById(R.id.card1);
+        card_2=findViewById(R.id.card2);
+        card_3=findViewById(R.id.card3);
+        card_4=findViewById(R.id.card4);
+        card_5=findViewById(R.id.card5);
         checkattendnace=findViewById(R.id.show_attendance);
         markattendance=findViewById(R.id.hr_attendance);
         addtrainer=findViewById(R.id.addEmployee);
         emplist=findViewById(R.id.employeeList);
         admin=findViewById(R.id.Admin);
+        leave=findViewById(R.id.bt_leave);
+        shsheet=findViewById(R.id.showsheet);
         fb=FirebaseFirestore.getInstance();
         addtrainer.setOnClickListener(this);
         markattendance.setOnClickListener(this);
         checkattendnace.setOnClickListener(this);
         exit.setOnClickListener(this);
         emplist.setOnClickListener(this);
+        leave.setOnClickListener(this);
+        shsheet.setOnClickListener(this);
+        progressDialog.show();
         final ArrayList<String> arrayList = new ArrayList<String>();
         arrayList.add("+918629870458");
+        arrayList.add("+917018793629");
         arrayList.add("+917837709702");
         arrayList.add("+919851700100");
         arrayList.add("+919682588655");
@@ -72,18 +90,20 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
        if(arrayList.contains(current))
        {
            for (int i = 0; i <= arrayList.size(); i++) {
-               addtrainer.setVisibility(View.VISIBLE);
-               emplist.setVisibility(View.VISIBLE);
-               markattendance.setVisibility(View.VISIBLE);
-               checkattendnace.setVisibility(View.VISIBLE);
+               card_1.setVisibility(View.VISIBLE);
+               card_2.setVisibility(View.VISIBLE);
+               card_3.setVisibility(View.VISIBLE);
+               card_4.setVisibility(View.VISIBLE);
+               card_5.setVisibility(View.VISIBLE);
            }
        }
        else
        {
-           addtrainer.setVisibility(View.GONE);
-           emplist.setVisibility(View.GONE);
-           markattendance.setVisibility(View.VISIBLE);
-           checkattendnace.setVisibility(View.VISIBLE);
+           card_1.setVisibility(View.GONE);
+           card_2.setVisibility(View.GONE);
+           card_5.setVisibility(View.GONE);
+           card_3.setVisibility(View.VISIBLE);
+           card_4.setVisibility(View.VISIBLE);
        }
       fb.collection("Employee")
                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -97,6 +117,7 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
                               user_number = user.getNum();
                               user_name = user.getName();
                               admin.setText("Welcome"+"\n"+user_name);
+                              progressDialog.dismiss();
                           }
                        }
 
@@ -150,10 +171,23 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
                 Animatoo.animateSplit(Admin_Option.this);
                 break;
             }
+            case R.id.bt_leave:
+            {
+
+                Intent intent=new Intent(getApplicationContext(),leave.class);
+                startActivity(intent);
+                Animatoo.animateSlideRight(Admin_Option.this);
+                break;
+            }
             case R.id.bt_log: {
                 auth.signOut();
                 Animatoo.animateSlideRight(Admin_Option.this);
                 this.finish();
+                break;
+            }
+            case R.id.showsheet:
+            {
+                startActivity(new Intent(getApplicationContext(),UserList.class));
                 break;
             }
             }

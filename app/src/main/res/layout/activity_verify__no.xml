@@ -1,39 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:weightSum="5"
+    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:paddingTop="50dp"
     tools:context=".Verify_NO">
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:background="@color/colorPrimary"
-        android:orientation="horizontal">
+
 
         <ImageView
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:layout_gravity="center"
             android:background="@drawable/ic_logo" />
 
-    </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_below="@id/relativeLayout"
-        android:layout_marginTop="-50dp"
-        android:background="@drawable/waves" />
+
+
 
     <RelativeLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/imageView"
+     android:layout_weight="3"
         android:orientation="vertical"
         android:layout_marginTop="50dp"
         android:padding="20dp">
@@ -86,4 +79,4 @@
 
 
     </RelativeLayout>
-</RelativeLayout>
+</LinearLayout>

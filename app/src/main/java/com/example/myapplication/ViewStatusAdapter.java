@@ -57,8 +57,6 @@ class ViewStatusAdapter extends RecyclerView.Adapter<ViewStatusAdapter.Myholder>
                 intent.putExtra("Type",teacherstatus.type);
                 intent.putExtra("Name",teacherstatus.name);
                 intent.putExtra("Photo",teacherstatus.getProfileurl());
-
-
                 context.startActivity(intent);
                                 return false;
             }

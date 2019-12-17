@@ -64,16 +64,7 @@ class Adepter extends RecyclerView.Adapter<Adepter.Myholder>
                 context.startActivity(intent);
             }
         });
-        holder.attendance.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String mobile=String.valueOf(user.num);
-                Intent intent=new Intent(context,View_Attendance.class);
-                intent.putExtra("Mobile",mobile);
-                context.startActivity(intent);
 
-            }
-        });
 
     }
 
@@ -91,14 +82,13 @@ class Adepter extends RecyclerView.Adapter<Adepter.Myholder>
     public class Myholder extends RecyclerView.ViewHolder {
        TextView txtemail,txtnum,txtname;
        ImageView imgcall;
-       Button attendance;
+
         public Myholder(@NonNull View itemView) {
             super(itemView);
          txtemail=itemView.findViewById(R.id.txt_email);
          txtname=itemView.findViewById(R.id.txt_name);
          txtnum=itemView.findViewById(R.id.txt_num);
          imgcall=itemView.findViewById(R.id.img_call);
-         attendance=itemView.findViewById(R.id.btn_checkAttendance);
         }
 
     }

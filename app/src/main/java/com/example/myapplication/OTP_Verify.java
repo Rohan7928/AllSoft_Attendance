@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -29,7 +30,7 @@ public class OTP_Verify extends AppCompatActivity {
 
 
     private EditText editTextCode;
-   RelativeLayout relativeLayout;
+   LinearLayout relativeLayout;
    String mobileno;
     private FirebaseAuth mAuth;
 
