@@ -4,12 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Employee_list"
-    android:padding="5dp">
-
+    tools:context=".Employee_list">
+    <RelativeLayout
+        android:id="@+id/relative_2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimaryDark"
+        android:elevation="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/supercreative"
+            android:text="Employee's"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
 <androidx.recyclerview.widget.RecyclerView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:padding="5dp"
+    android:layout_below="@id/relative_2"
     android:id="@+id/recycle_view"/>
 </RelativeLayout>

@@ -30,7 +30,7 @@ import java.util.Random;
 
 public class Admin_Option extends AppCompatActivity implements View.OnClickListener {
 
-   Button checkattendnace,addtrainer,exit,emplist,markattendance,leave,shsheet;
+   TextView checkattendnace,addtrainer,exit,emplist,markattendance,leave,shsheet;
    FirebaseAuth auth;
    String number,name;
     String user,mobilno,generatedPassword;
@@ -38,7 +38,7 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
    FirebaseUser firebaseUser;
     String user_name, user_number,current;
    TextView admin;
-   CardView card_1,card_2,card_3,card_4,card_5;
+   CardView card_1,card_2,card_3,card_4,card_5,card_6,card_7;
    ProgressDialog progressDialog;
 
     @Override
@@ -63,6 +63,8 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
         card_3=findViewById(R.id.card3);
         card_4=findViewById(R.id.card4);
         card_5=findViewById(R.id.card5);
+        card_6=findViewById(R.id.card6);
+        card_7=findViewById(R.id.card7);
         checkattendnace=findViewById(R.id.show_attendance);
         markattendance=findViewById(R.id.hr_attendance);
         addtrainer=findViewById(R.id.addEmployee);
@@ -71,13 +73,14 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
         leave=findViewById(R.id.bt_leave);
         shsheet=findViewById(R.id.showsheet);
         fb=FirebaseFirestore.getInstance();
-        addtrainer.setOnClickListener(this);
-        markattendance.setOnClickListener(this);
-        checkattendnace.setOnClickListener(this);
-        exit.setOnClickListener(this);
-        emplist.setOnClickListener(this);
-        leave.setOnClickListener(this);
-        shsheet.setOnClickListener(this);
+        card_1.setOnClickListener(this);
+        card_2.setOnClickListener(this);
+        card_3.setOnClickListener(this);
+        card_4.setOnClickListener(this);
+        card_5.setOnClickListener(this);
+        card_6.setOnClickListener(this);
+        card_7.setOnClickListener(this);
+
         progressDialog.show();
         final ArrayList<String> arrayList = new ArrayList<String>();
         arrayList.add("+918629870458");
@@ -141,18 +144,18 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
         int id=v.getId();
         switch (id)
         {
-            case R.id.addEmployee: {
+            case R.id.card1: {
                 startActivity(new Intent(getApplicationContext(), ADMIN.class));
                 Animatoo.animateSplit(Admin_Option.this);
                 break;
             }
 
-            case R.id.employeeList: {
+            case R.id.card2: {
                 startActivity(new Intent(getApplicationContext(), Employee_list.class));
                 Animatoo.animateSplit(Admin_Option.this);
                 break;
             }
-            case R.id.hr_attendance: {
+            case R.id.card3: {
 
                 Intent intent=new Intent(getApplicationContext(),Detail.class);
                 intent.putExtra("User_Name",user_name);
@@ -162,7 +165,7 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
                 Animatoo.animateSplit(Admin_Option.this);
                 break;
             }
-            case R.id.show_attendance: {
+            case R.id.card4: {
                 Intent intent=new Intent(getApplicationContext(),MainActivity.class);
                 intent.putExtra("UserNam_e",user_name);
                 intent.putExtra("Authorize_d",current);
@@ -171,7 +174,7 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
                 Animatoo.animateSplit(Admin_Option.this);
                 break;
             }
-            case R.id.bt_leave:
+            case R.id.card6:
             {
 
                 Intent intent=new Intent(getApplicationContext(),leave.class);
@@ -179,13 +182,13 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
                 Animatoo.animateSlideRight(Admin_Option.this);
                 break;
             }
-            case R.id.bt_log: {
+            case R.id.card7: {
                 auth.signOut();
                 Animatoo.animateSlideRight(Admin_Option.this);
                 this.finish();
                 break;
             }
-            case R.id.showsheet:
+            case R.id.card5:
             {
                 startActivity(new Intent(getApplicationContext(),UserList.class));
                 break;

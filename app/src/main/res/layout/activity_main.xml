@@ -5,25 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="2"
     android:id="@+id/linear"
     tools:context=".MainActivity">
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/deviceid"
-    android:layout_gravity="center"
-    android:layout_centerHorizontal="true"
-    android:hint="Device Id"
-    android:textSize="10sp"
-    android:textColor="@color/white"
-    android:background="@color/colorPrimaryDark" />
+    <RelativeLayout
+        android:id="@+id/relative_3"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimaryDark"
+        android:elevation="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/supercreative"
+            android:text="Attendance Record"
+            android:layout_centerInParent="true"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/deviceid"
+            android:layout_gravity="center"
+           android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/text_20sp"
+            android:hint="Device Id"
+            android:textSize="10sp"
+            android:textColor="@color/white"
+            />
+    </RelativeLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:id="@+id/lit_view"
-        android:layout_below="@id/deviceid"/>
+        android:layout_below="@id/relative_3"/>
 
 </LinearLayout>
