@@ -25,7 +25,8 @@
                 android:elevation="9dp"
                 android:src="@drawable/addphoto"
                 />
-            <com.google.android.material.card.MaterialCardView
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/card_card">
@@ -138,7 +139,7 @@
 
 
 
-            </com.google.android.material.card.MaterialCardView>
+            </androidx.cardview.widget.CardView>
 
 
         </RelativeLayout>

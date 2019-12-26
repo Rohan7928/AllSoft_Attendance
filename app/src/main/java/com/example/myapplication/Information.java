@@ -27,12 +27,11 @@ public class Information extends AppCompatActivity {
         Intent intent=getIntent();
         location=intent.getStringExtra("location");
         timev=intent.getStringExtra("time");
-        idi=intent.getStringExtra("Address");
-        address=intent.getStringExtra("Id");
+        idi=intent.getStringExtra("Id");
+        address=intent.getStringExtra("Address");
         name=intent.getStringExtra("Type");
         type=intent.getStringExtra("Name");
         url=intent.getStringExtra("Photo");
-
         locationText.setText(location);
         currentimev.setText(timev);
         useraddress.setText(address);

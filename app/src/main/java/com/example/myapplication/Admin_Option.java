@@ -32,14 +32,14 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
 
    TextView checkattendnace,addtrainer,exit,emplist,markattendance,leave,shsheet;
    FirebaseAuth auth;
-   String number,name;
-    String user,mobilno,generatedPassword;
+   String name,generatedPassword;
     FirebaseFirestore fb;
    FirebaseUser firebaseUser;
     String user_name, user_number,current;
    TextView admin;
    CardView card_1,card_2,card_3,card_4,card_5,card_6,card_7;
    ProgressDialog progressDialog;
+   Button datewise_;
 
     @Override
     public void onBackPressed() {
@@ -80,7 +80,8 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
         card_5.setOnClickListener(this);
         card_6.setOnClickListener(this);
         card_7.setOnClickListener(this);
-
+        datewise_=findViewById(R.id.date_wise);
+        datewise_.setOnClickListener(this);
         progressDialog.show();
         final ArrayList<String> arrayList = new ArrayList<String>();
         arrayList.add("+918629870458");
@@ -191,6 +192,11 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
             case R.id.card5:
             {
                 startActivity(new Intent(getApplicationContext(),UserList.class));
+                break;
+            }
+            case R.id.date_wise:
+            {
+                startActivity(new Intent(getApplicationContext(), datewise.class));
                 break;
             }
             }

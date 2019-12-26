@@ -12,8 +12,7 @@
         android:layout_height="0dp"
         android:layout_weight="2"
         android:backgroundTint="#897EFE"
-        android:background="@drawable/main"
-        >
+        android:background="@drawable/main">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,7 +24,11 @@
             android:textColor="@color/white"
             android:textSize="34sp"
             />
-    </RelativeLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/date_wise"
+            android:text="Date"/>    </RelativeLayout>
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

@@ -2,17 +2,25 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +52,8 @@ public class Verify_NO extends AppCompatActivity {
     String time,number;
     Number_Name number_name;
     AlertDialog dialog;
+    protected LocationManager locationManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +62,7 @@ public class Verify_NO extends AppCompatActivity {
         editTextMobile = findViewById(R.id.editTextMobile);
         fb = FirebaseFirestore.getInstance();
         auth=FirebaseAuth.getInstance();
-        progressDialog = new ProgressDialog(this, R.style.MyAlertDialogStyle);
+        progressDialog = new ProgressDialog(this, R.style.CustomDialogTheme);
         progressDialog.setTitle("Please wait...");
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
@@ -66,7 +76,7 @@ public class Verify_NO extends AppCompatActivity {
         arrayList.add("7837709702");
         arrayList.add("9851700100");
         arrayList.add("9682588655");
-        findViewById(R.id.buttonContinue).setOnClickListener(new View.OnClickListener() {
+    findViewById(R.id.buttonContinue).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mobile=editTextMobile.getText().toString();
@@ -100,7 +110,7 @@ public class Verify_NO extends AppCompatActivity {
                                                 Animatoo.animateSlideUp(Verify_NO.this);
                                                 finish();
                                             } else {
-                                                progressDialog.dismiss();
+                                               progressDialog.dismiss();
                                                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(Verify_NO.this);
                                                 View mView = getLayoutInflater().inflate(R.layout.dailog_detail, null);
                                                 final EditText mEmail = (EditText) mView.findViewById(R.id.etEmail);
@@ -216,6 +226,7 @@ public class Verify_NO extends AppCompatActivity {
             }
         });
     }
+
 
     @Override
     public void onBackPressed() {

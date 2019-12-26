@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/refresh_out"
+    android:background="@drawable/go_bg"
+      tools:context=".Gps">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/relative_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ff3333"
+            android:elevation="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textSize="@dimen/text_20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/supercreative"
+                android:layout_centerInParent="true"
+                android:text="Turn On Gps and Internet Connection" />
+        </RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/gpss"
+            android:textSize="16sp"
+            android:fontFamily="@font/supercreative"
+            android:textAlignment="center"
+            android:text="Swipe to down to refresh your page"
+            android:textColor="#ff3333"/>
+       <ImageView
+            android:layout_width="500dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:id="@+id/gpss"
+            android:layout_centerInParent="true"
+            android:layout_margin="10dp"
+            android:elevation="90dp"
+            android:src="@drawable/no_gps"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_view"
+            android:layout_marginTop="-130dp"
+            android:textSize="16sp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:layout_below="@id/gpss"
+            android:hint="Conneted OR Not"
+            android:background="#ff3333"
+            />
+
+    </RelativeLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

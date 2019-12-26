@@ -46,21 +46,6 @@ class ViewStatusAdapter extends RecyclerView.Adapter<ViewStatusAdapter.Myholder>
         myholder.txtname.setText(teacherstatus.name);
         Picasso.get().load(teacherstatus.getProfileurl()).into(myholder.circleImageView);
 
-        myholder.cardView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Intent intent=new Intent(context,Information.class);
-                intent.putExtra("location",teacherstatus.log);
-                intent.putExtra("time",teacherstatus.num);
-                intent.putExtra("Address",teacherstatus.address);
-                intent.putExtra("Id",teacherstatus.id);
-                intent.putExtra("Type",teacherstatus.type);
-                intent.putExtra("Name",teacherstatus.name);
-                intent.putExtra("Photo",teacherstatus.getProfileurl());
-                context.startActivity(intent);
-                                return false;
-            }
-        });
     }
 
     @Override

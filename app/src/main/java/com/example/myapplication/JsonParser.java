@@ -1,9 +1,4 @@
 package com.example.myapplication;
-
-/**
- * Created by ADJ on 8/9/2017.
- */
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,7 +12,6 @@ import static com.example.myapplication.Configuration.KEY_TIME;
 import static com.example.myapplication.Configuration.KEY_TYPE;
 import static com.example.myapplication.Configuration.KEY_USERS;
 
-
 public class JsonParser {
     public static String[] uIds;
     public static String[] uNames;
@@ -28,9 +22,7 @@ public class JsonParser {
     public static String[] uAddress;
     public static String[] uImages;
 
-
     private JSONArray users = null;
-
     private String json;
 
     public JsonParser(String json){
@@ -63,8 +55,6 @@ public class JsonParser {
                 uAddress[i] = jo.getString(KEY_ADDRESS);
                 uImages[i] = jo.getString(KEY_IMAGE);
             }
-
-           // Log.e("uImage","ser image"+uImages[0]);
         } catch (JSONException e) {
             e.printStackTrace();
         }

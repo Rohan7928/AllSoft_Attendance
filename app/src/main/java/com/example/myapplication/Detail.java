@@ -24,6 +24,8 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -34,6 +36,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
@@ -101,6 +104,7 @@ public class Detail extends AppCompatActivity implements LocationListener {
     CircularImageView addphoto;
     ScrollView scrollView;
     RadioGroup radioGroup;
+    LinearLayout linearLayout;
     TextView locationText, currentimev, did, useraddress,username;
     FirebaseAuth auth;
     FirebaseFirestore fb;
@@ -139,7 +143,7 @@ public class Detail extends AppCompatActivity implements LocationListener {
         fb = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
         scrollView=findViewById(R.id.scroll_view);
-
+        linearLayout=findViewById(R.id.liner);
         storageReference = FirebaseStorage.getInstance().getReference().child("Database").child("Users");
         Intent intent=getIntent();
        user= intent.getStringExtra("User_Name");
@@ -147,10 +151,27 @@ public class Detail extends AppCompatActivity implements LocationListener {
         generatedPassword=intent.getStringExtra("Random");
         username.setText(user);
         radioGroup.clearCheck();
+        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        boolean connection=isNetworkAvailable();
+        boolean gps=isGpsAvailable();
+        if(connection && gps==true){
+            Snackbar snackbar=Snackbar.make(linearLayout,"Welcome",Snackbar.LENGTH_LONG);
+            View snackbarView = snackbar.getView();
+            snackbarView.setBackgroundColor(Color.parseColor("#ACA4FE"));
+            snackbar.show();
+           }
+        else{
+            Snackbar snackbar=Snackbar.make(linearLayout,"Check Your GPS or Internet Connetcion",Snackbar.LENGTH_LONG);
+            View snackbarView = snackbar.getView();
+            snackbarView.setBackgroundColor(Color.parseColor("#b31b1b"));
+            snackbar.show();
+            startActivity(new Intent(getApplicationContext(),Gps.class));
+
+        }
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                RadioButton radioButton = (RadioButton) group.findViewById(checkedId);
+                RadioButton radioButton = group.findViewById(checkedId);
                 getLocation(log, add);
                 progressDialog.show();
             }
@@ -159,7 +180,7 @@ public class Detail extends AppCompatActivity implements LocationListener {
             @Override
             public void onClick(View v) {
                 getid();
-                //savedata();
+
             }
         });
        addphoto.setOnClickListener(new View.OnClickListener() {
@@ -169,6 +190,22 @@ public class Detail extends AppCompatActivity implements LocationListener {
            }
        });
     }
+
+    private boolean isGpsAvailable() {
+        if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
+        {
+            return true;
+        }
+        else {
+            return false;
+        }    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager=(ConnectivityManager) this.getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo=connectivityManager.getActiveNetworkInfo();
+        return networkInfo !=null;
+    }
+
     private void iphoto() {
         final CharSequence[] items = {"Take a new photo", "Cancel"};
         AlertDialog.Builder builder = new AlertDialog.Builder(Detail.this,R.style.CustomDialogTheme);
@@ -194,7 +231,8 @@ public class Detail extends AppCompatActivity implements LocationListener {
                 if (items[i].equals("Take a new photo")) {
                     //request permission start camera intent
                     requestCameraPermission();
-                } *//*else if (items[i].equals("Choose from gallery")) {
+                } */
+       /*else if (items[i].equals("Choose from gallery")) {
                     //request gallery permission and start gallery intent
                     requestGalleryPermission();
                 }*//* else if (items[i].equals("Cancel")) {
@@ -491,7 +529,7 @@ public class Detail extends AppCompatActivity implements LocationListener {
                 params.put(KEY_NAME,user);
                 params.put(KEY_COUNTRY,log);
                 params.put(KEY_MOBILE,mobilno);
-                params.put(KEY_TIME,currentDate);
+                params.put(KEY_TIME,currentDateandTime);
                 params.put(KEY_TYPE,type);
                 params.put(KEY_ADDRESS,add);
                 params.put(KEY_IMAGE,userImage);

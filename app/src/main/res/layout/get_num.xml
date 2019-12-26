@@ -50,7 +50,13 @@
         android:layout_centerHorizontal="true"
         android:hint="Name"></TextView>
 
-
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/txt_email"
+    android:text="Show Attendance"
+    android:id="@+id/show_attendance_"
+    android:layout_alignParentLeft="true"/>
             <ImageView
                 android:id="@+id/img_call"
                 android:layout_width="wrap_content"

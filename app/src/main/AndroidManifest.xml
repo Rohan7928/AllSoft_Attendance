@@ -9,24 +9,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".leave"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Information"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Employee_list"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".OTP_Verify"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Verify_NO"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Admin_Option"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ADMIN"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Detail"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".flash_activity"
+        <activity android:name=".datewise"></activity>
+        <activity android:name=".Gps" />
+        <activity
+            android:name=".leave"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Information"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Employee_list"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OTP_Verify"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Verify_NO"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Admin_Option"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ADMIN"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Detail"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".flash_activity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,10 +44,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".UserList"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UserList"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".View_Attendance"
+            android:screenOrientation="portrait" />
     </application>
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />

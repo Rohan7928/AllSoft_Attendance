@@ -96,7 +96,8 @@ FirebaseAuth auth;
         }
         else
         {
-            fb.collection("Employee").document(mobileno).collection("ID").orderBy("num", Query.Direction.DESCENDING)
+            fb.collection("Employee").document(mobileno).collection("ID")
+                    .orderBy("num", Query.Direction.DESCENDING)
                     .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -112,7 +113,6 @@ FirebaseAuth auth;
                             View snackbarView = snackbar.getView();
                             snackbarView.setBackgroundColor(Color.parseColor("#FFB0D9B9"));
                            snackbar.show();
-                                //Toast.makeText(MainActivity.this, "No Attendance Marked Yet", Toast.LENGTH_SHORT).show();
                             }
 
                     }

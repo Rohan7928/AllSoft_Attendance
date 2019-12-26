@@ -2,15 +2,12 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskExecutors;
@@ -21,17 +18,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
-
 import java.util.concurrent.TimeUnit;
 
 public class OTP_Verify extends AppCompatActivity {
 
     private String mVerificationId;
-
-
     private EditText editTextCode;
-   LinearLayout relativeLayout;
-   String mobileno;
+    LinearLayout relativeLayout;
+    String mobileno;
     private FirebaseAuth mAuth;
 
     @Override
@@ -56,7 +50,6 @@ public class OTP_Verify extends AppCompatActivity {
                 verifyVerificationCode(code);
             }
         });
-
     }
     private void sendVerificationCode(String mobile) {
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
@@ -66,7 +59,6 @@ public class OTP_Verify extends AppCompatActivity {
                 TaskExecutors.MAIN_THREAD,
                 mCallbacks);
     }
-
     @Override
     public void onBackPressed() {
         finishAffinity();
@@ -76,11 +68,7 @@ public class OTP_Verify extends AppCompatActivity {
         @Override
         public void onVerificationFailed(FirebaseException e) {
             Toast.makeText(OTP_Verify.this, e.getMessage(), Toast.LENGTH_LONG).show();
-
         }
-
-
-
         @Override
         public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
             String code = phoneAuthCredential.getSmsCode();
@@ -90,7 +78,6 @@ public class OTP_Verify extends AppCompatActivity {
                 verifyVerificationCode(code);
             }
         }
-
         @Override
         public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
             super.onCodeSent(s, forceResendingToken);

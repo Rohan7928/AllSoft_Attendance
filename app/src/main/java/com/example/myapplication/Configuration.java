@@ -1,8 +1,5 @@
 package com.example.myapplication;
 
-/**
- * Created by ADJ on 8/9/2017.
- */
 
 public class Configuration {
 
