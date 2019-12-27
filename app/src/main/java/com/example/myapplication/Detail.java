@@ -111,7 +111,7 @@ public class Detail extends AppCompatActivity implements LocationListener {
     FloatingActionButton getLocationBtn;
     private String log, add ;
     private String id, type,url;
-    private String currentDateandTime, currentDate ;
+    private String currentDateandTime, currentDate ,time;
     LocationManager locationManager;
     ProgressDialog progressDialog;
     private static final int GALLERY_REQUEST = 1;
@@ -157,13 +157,13 @@ public class Detail extends AppCompatActivity implements LocationListener {
         if(connection && gps==true){
             Snackbar snackbar=Snackbar.make(linearLayout,"Welcome",Snackbar.LENGTH_LONG);
             View snackbarView = snackbar.getView();
-            snackbarView.setBackgroundColor(Color.parseColor("#ACA4FE"));
+            snackbarView.setBackgroundColor(Color.parseColor("#932a62"));
             snackbar.show();
            }
         else{
             Snackbar snackbar=Snackbar.make(linearLayout,"Check Your GPS or Internet Connetcion",Snackbar.LENGTH_LONG);
             View snackbarView = snackbar.getView();
-            snackbarView.setBackgroundColor(Color.parseColor("#b31b1b"));
+            snackbarView.setBackgroundColor(Color.parseColor("#932a62"));
             snackbar.show();
             startActivity(new Intent(getApplicationContext(),Gps.class));
 
@@ -429,9 +429,10 @@ public class Detail extends AppCompatActivity implements LocationListener {
             did.setText(id);
             Calendar calendar = Calendar.getInstance();
             SimpleDateFormat date = new SimpleDateFormat("dd.MM.yyyy");
+            SimpleDateFormat mdformat = new SimpleDateFormat("HH:mm:ss");
             SimpleDateFormat time = new SimpleDateFormat("HH:mm a");
             currentDate = date.format(new Date());
-            currentDateandTime = time.format(new Date());
+            currentDateandTime = time.format(calendar.getTime());
             currentimev.setText(currentDateandTime);
             useraddress.setText(add);
             try {

@@ -14,6 +14,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.AnimationDrawable;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -22,6 +23,8 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
@@ -36,11 +39,18 @@ public class flash_activity extends AppCompatActivity {
     FirebaseUser user;
     FirebaseUser currentUser;
     String phone;
+    LinearLayout linearLayout;
     protected LocationManager locationManager;
+    AnimationDrawable animationDrawable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash_activity);
+        linearLayout=findViewById(R.id.main);
+        animationDrawable= (AnimationDrawable) linearLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(500);
+        animationDrawable.setExitFadeDuration(1000);
+        animationDrawable.start();
         auth = FirebaseAuth.getInstance();
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         currentUser = auth.getCurrentUser();
@@ -48,7 +58,6 @@ public class flash_activity extends AppCompatActivity {
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) && connection)
         {
-            Toast.makeText(flash_activity.this, "Enabled", Toast.LENGTH_SHORT).show();
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {

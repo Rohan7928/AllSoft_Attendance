@@ -110,9 +110,5 @@ public class ADMIN extends AppCompatActivity {
              }
          }
          });
-
-
-
     }
-
 }

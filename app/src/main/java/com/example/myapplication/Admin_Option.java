@@ -39,7 +39,7 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
    TextView admin;
    CardView card_1,card_2,card_3,card_4,card_5,card_6,card_7;
    ProgressDialog progressDialog;
-   Button datewise_;
+   CardView datewise_;
 
     @Override
     public void onBackPressed() {
@@ -54,10 +54,10 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
         progressDialog.setTitle("Please wait for a sec...");
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
+        admin=findViewById(R.id.Admin);
         auth=FirebaseAuth.getInstance();
         firebaseUser=auth.getCurrentUser();
         current=firebaseUser.getPhoneNumber();
-        exit=findViewById(R.id.bt_log);
         card_1=findViewById(R.id.card1);
         card_2=findViewById(R.id.card2);
         card_3=findViewById(R.id.card3);
@@ -65,13 +65,6 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
         card_5=findViewById(R.id.card5);
         card_6=findViewById(R.id.card6);
         card_7=findViewById(R.id.card7);
-        checkattendnace=findViewById(R.id.show_attendance);
-        markattendance=findViewById(R.id.hr_attendance);
-        addtrainer=findViewById(R.id.addEmployee);
-        emplist=findViewById(R.id.employeeList);
-        admin=findViewById(R.id.Admin);
-        leave=findViewById(R.id.bt_leave);
-        shsheet=findViewById(R.id.showsheet);
         fb=FirebaseFirestore.getInstance();
         card_1.setOnClickListener(this);
         card_2.setOnClickListener(this);
@@ -104,7 +97,7 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
                                    card_3.setVisibility(View.VISIBLE);
                                    card_4.setVisibility(View.VISIBLE);
                                    card_5.setVisibility(View.VISIBLE);
-
+                                   datewise_.setVisibility(View.VISIBLE);
                                    user_number = user.getNum();
                                    user_name = user.getName();
                                    admin.setText("Welcome"+"\n"+user_name);
@@ -112,9 +105,6 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
 
                                }
                                else {
-                                   card_1.setVisibility(View.GONE);
-                                   card_2.setVisibility(View.GONE);
-                                   card_5.setVisibility(View.GONE);
                                    card_3.setVisibility(View.VISIBLE);
                                    card_4.setVisibility(View.VISIBLE);
                                    user_number = user.getNum();

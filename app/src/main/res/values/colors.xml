@@ -3,9 +3,9 @@
     <color name="demo">#1eb4c2</color>
     <color name="white">#FFFFFF</color>
     <color name="skyblue">#1867C0</color>
-    <color name="colorPrimary">#897EFE</color>
-    <color name="colorPrimaryDark">#7B71E4</color>
-    <color name="colorAccent">#ACA4FE</color>
+    <color name="colorPrimary">#b6206d</color>
+    <color name="colorPrimaryDark">#932a62</color>
+    <color name="colorAccent">#31567a</color>
     <color name="colorBlue">#3c00ff</color>
     <color name="colorPink">#FF4081</color>
     <color name="black">#000000</color>

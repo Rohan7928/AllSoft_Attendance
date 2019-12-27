@@ -84,7 +84,6 @@
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/supercreative"
-
                         android:hint="Date"
                         android:padding="8dp"
                         android:textColor="@color/black"

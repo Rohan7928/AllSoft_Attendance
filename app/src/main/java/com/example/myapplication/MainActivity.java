@@ -56,7 +56,7 @@ FirebaseAuth auth;
         recyclerView = findViewById(R.id.lit_view);
         id=findViewById(R.id.deviceid);
         linearLayout=findViewById(R.id.linear);
-        progressDialog = new ProgressDialog(this,R.style.MyAlertDialogStyle);
+        progressDialog = new ProgressDialog(this,R.style.CustomDialogTheme);
         progressDialog.setTitle("Uploading Attendance...");
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);

@@ -7,8 +7,6 @@
     android:orientation="vertical"
     android:padding="10dp"
     tools:context=".Information">
-
-
     <ImageView
         android:id="@+id/show_photo"
         android:layout_width="350dp"

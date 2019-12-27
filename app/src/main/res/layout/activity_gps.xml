@@ -14,7 +14,7 @@
             android:id="@+id/relative_3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ff3333"
+            android:background="@color/colorPrimary"
             android:elevation="10dp">
             <TextView
                 android:layout_width="wrap_content"
@@ -36,7 +36,7 @@
             android:fontFamily="@font/supercreative"
             android:textAlignment="center"
             android:text="Swipe to down to refresh your page"
-            android:textColor="#ff3333"/>
+            android:textColor="@color/colorPrimaryDark"/>
        <ImageView
             android:layout_width="500dp"
             android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
             android:textColor="@color/white"
             android:layout_below="@id/gpss"
             android:hint="Conneted OR Not"
-            android:background="#ff3333"
+            android:background="@color/colorAccent"
             />
 
     </RelativeLayout>

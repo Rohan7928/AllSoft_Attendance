@@ -51,7 +51,7 @@ public class Verify_NO extends AppCompatActivity {
     FirebaseAuth auth;
     String time,number,type;
     Number_Name number_name;
-    AlertDialog dialog;
+
     protected LocationManager locationManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

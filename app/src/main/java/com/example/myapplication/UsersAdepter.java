@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -27,9 +29,9 @@ public class UsersAdepter extends RecyclerView.Adapter<UsersAdepter.Myholder> {
     private String[] uAddress;
     private String[] uImages;
     private List<String> users;
-   String date,userdate;
+   String date,userdate,usertype,usertime,username;
    String a;
- int count=0;
+   int count=0,c=0;
     public UsersAdepter(datewise datewise, String[] uIds, String[] uNames, String[] uLocation, String[] uMobile, String[] uTime, String[] uType, String[] uAddress, String[] uImages, String msg) {
         this.context=datewise;
         this.uId = uIds;
@@ -43,10 +45,6 @@ public class UsersAdepter extends RecyclerView.Adapter<UsersAdepter.Myholder> {
         this.date=msg;
     }
 
-    /*public UsersAdepter(datewise datewise, String msg) {
-        this.context=datewise;
-        this.date=msg;
-    }*/
 
     @NonNull
     @Override
@@ -57,34 +55,47 @@ public class UsersAdepter extends RecyclerView.Adapter<UsersAdepter.Myholder> {
     }
     @Override
     public void onBindViewHolder(@NonNull UsersAdepter.Myholder holder, int position) {
-        //Json json=arrayList.get(position);
         int siz=uId.length;
-
         for(int i=0;i<siz;i++)
         {
             Toast.makeText(context, "Size"+siz, Toast.LENGTH_SHORT).show();
-            if(Arrays.asList(uId[position]).contains(date)) {
+            if(Arrays.asList(uId[position]).contains(date))
+            {
+                        holder.cardView.setVisibility(View.VISIBLE);
+                        userdate=String.valueOf(uId[position]);
+                        usertype=String.valueOf(uType[position]);
+                        username=String.valueOf(uNames[position]);
+                        holder.urname.setText(String.valueOf(uNames[position]));
+                       // holder.urtype.setText(String.valueOf(uTime[position]));
+                        //holder.urtime.setText(String.valueOf(uTime[position]));
+                      if(username.equals(String.valueOf(uNames[position])))
+                      {
 
-               userdate=String.valueOf(uId[position]);
-                holder.urid.setText(userdate);
+                          if(usertype.equals("IN"))
+                          {
+                              holder.urtype.setText(String.valueOf(uTime[position]));
+                          }
+                          else if(usertype.equals("OUT"))
+                          {
+                              holder.urtime.setText(String.valueOf(uTime[position]));
+
+                          }
+                      }
+                      else
+                      {
+                          Toast.makeText(context, "no", Toast.LENGTH_SHORT).show();
+                      }
+              /* holder.urid.setText(userdate);
                 holder.urname.setText(String.valueOf(uNames[position]));
                 holder.urtype.setText(String.valueOf(uType[position]));
                 holder.urtime.setText(String.valueOf(uTime[position]));
-          //   count= Integer.parseInt(uId[position]);
-               /*if(userdate.equals(" "))
-               {
-                   Toast.makeText(context, "NULL", Toast.LENGTH_SHORT).show();
-               }else
-               {
-                   users.add(userdate);
-               }*/
+
                Toast.makeText(context, "Value"+userdate, Toast.LENGTH_SHORT).show();
-
+*/
             }        else {
-               // Toast.makeText(context, "Value"+ userdate, Toast.LENGTH_SHORT).show();
-                Toast.makeText(context, "No Date Found"+userdate, Toast.LENGTH_SHORT).show();
+               c++;
+                Toast.makeText(context, "No Date Found"+c, Toast.LENGTH_SHORT).show();
             }
-
         }
 
         }
@@ -93,18 +104,18 @@ public class UsersAdepter extends RecyclerView.Adapter<UsersAdepter.Myholder> {
     public int getItemCount() {
         return uId.length;
     }
-   /*public void addData(Json json1) {
-       this.arrayList.add(json1);
-       notifyDataSetChanged();
-    }*/
+
     public class Myholder extends RecyclerView.ViewHolder {
         TextView urid,urname, urtype,urtime;
+        CardView cardView;
         public Myholder(View listViewItem) {
             super(listViewItem);
               urid = (TextView) listViewItem.findViewById(R.id.Date);
              urname = (TextView) listViewItem.findViewById(R.id._Name);
             urtype = (TextView) listViewItem.findViewById(R.id._Type);
              urtime = (TextView) listViewItem.findViewById(R.id._Time);
+             cardView = (CardView) listViewItem.findViewById(R.id.card_value);
+
          }
     }
 }

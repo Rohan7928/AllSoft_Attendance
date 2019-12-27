@@ -2,33 +2,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/Date"
-    android:hint="Date"
-    android:textSize="@dimen/text_20sp"
-    android:layout_gravity="center"/>
-    <TextView
-        android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/_Name"
-        android:hint="Name"
-        android:textSize="@dimen/text_20sp"
-        android:layout_gravity="center"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/_Type"
-        android:hint="Type"
-        android:textSize="@dimen/text_20sp"
-        android:layout_gravity="center"/> <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/_Time"
-        android:hint="Time"
-        android:textSize="@dimen/text_20sp"
-        android:layout_gravity="center"/>
+        android:visibility="gone"
+        android:elevation="50dp"
+        android:id="@+id/card_value">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Date"
+            android:hint="Date"
+            android:visibility="gone"
+           />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/_Name"
+            android:hint="Name"
+            android:layout_marginLeft="8dp"
+            android:layout_gravity="start"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/_Type"
+            android:hint="-"
+            android:layout_gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/_Time"
+            android:layout_marginRight="20dp"
+            android:hint="-"
+            android:layout_gravity="right"/>
+    </androidx.cardview.widget.CardView>
+
 </LinearLayout>

@@ -81,11 +81,7 @@ public class datewise extends AppCompatActivity {
     private void showJSON(String json){
         JsonParser pj = new JsonParser(json);
         pj.parseJSON();
-      //  Json json1=new Json(JsonParser.uIds,JsonParser.uNames,JsonParser.uLocation,JsonParser.uMobile,JsonParser.uTime,JsonParser.uType,JsonParser.uAddress,JsonParser.uImages);
         UsersAdepter userListAdapter = new UsersAdepter(this, JsonParser.uIds,JsonParser.uNames,JsonParser.uLocation,JsonParser.uMobile,JsonParser.uTime,JsonParser.uType,JsonParser.uAddress,JsonParser.uImages,msg);
-       // UsersAdepter userListAdapter=new UsersAdepter(this,msg);
-       // userListAdapter.addData(json1);
-        //userListAdapter.notifyDataSetChanged();
         listView.setAdapter(userListAdapter);
     }
 }
