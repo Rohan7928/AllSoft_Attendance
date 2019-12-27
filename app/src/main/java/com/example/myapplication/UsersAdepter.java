@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class UsersAdepter extends RecyclerView.Adapter<UsersAdepter.Myholder> {
     ArrayList<Json> arrayList=new ArrayList<>();
@@ -25,7 +26,8 @@ public class UsersAdepter extends RecyclerView.Adapter<UsersAdepter.Myholder> {
     private String[] uType;
     private String[] uAddress;
     private String[] uImages;
-   String date;
+    private List<String> users;
+   String date,userdate;
    String a;
  int count=0;
     public UsersAdepter(datewise datewise, String[] uIds, String[] uNames, String[] uLocation, String[] uMobile, String[] uTime, String[] uType, String[] uAddress, String[] uImages, String msg) {
@@ -62,16 +64,25 @@ public class UsersAdepter extends RecyclerView.Adapter<UsersAdepter.Myholder> {
         {
             Toast.makeText(context, "Size"+siz, Toast.LENGTH_SHORT).show();
             if(Arrays.asList(uId[position]).contains(date)) {
-                holder.urid.setText(String.valueOf(uId[position]));
+
+               userdate=String.valueOf(uId[position]);
+                holder.urid.setText(userdate);
                 holder.urname.setText(String.valueOf(uNames[position]));
                 holder.urtype.setText(String.valueOf(uType[position]));
                 holder.urtime.setText(String.valueOf(uTime[position]));
-             count= Integer.parseInt(uId[position]);
-                Toast.makeText(context, "count"+count, Toast.LENGTH_SHORT).show();
+          //   count= Integer.parseInt(uId[position]);
+               /*if(userdate.equals(" "))
+               {
+                   Toast.makeText(context, "NULL", Toast.LENGTH_SHORT).show();
+               }else
+               {
+                   users.add(userdate);
+               }*/
+               Toast.makeText(context, "Value"+userdate, Toast.LENGTH_SHORT).show();
 
             }        else {
-
-                Toast.makeText(context, "No Date Found", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(context, "Value"+ userdate, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "No Date Found"+userdate, Toast.LENGTH_SHORT).show();
             }
 
         }
@@ -80,7 +91,6 @@ public class UsersAdepter extends RecyclerView.Adapter<UsersAdepter.Myholder> {
 
     @Override
     public int getItemCount() {
-        Toast.makeText(context, "count"+a, Toast.LENGTH_SHORT).show();
         return uId.length;
     }
    /*public void addData(Json json1) {

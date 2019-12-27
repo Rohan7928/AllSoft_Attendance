@@ -54,13 +54,24 @@ public class User {
     String designation;
     String num;
 
-    public User(String num, String user, String time, String email, String designation)
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    String type;
+
+    public User(String num, String user, String time, String email, String designation, String type)
     {
         this.num=num;
         this.name=user;
         this.time=time;
         this.email=email;
         this.designation=designation;
+        this.type=type;
     }
     public  User()
     {

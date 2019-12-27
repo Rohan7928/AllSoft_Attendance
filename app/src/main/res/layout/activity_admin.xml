@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="11"
+    android:id="@+id/Relate"
     tools:context=".ADMIN">
     <RelativeLayout
         android:id="@+id/relative_1"
@@ -141,7 +142,14 @@
             android:backgroundTint="@color/colorPrimary"
             android:textColor="@color/black"
             />
-
+<CheckBox
+    android:layout_width="wrap_content"
+    android:layout_height="70dp"
+    android:layout_gravity="right"
+    android:text="IsHR"
+    android:textSize="25dp"
+    android:layout_marginRight="@dimen/text_20sp"
+    android:id="@+id/is_hr"/>
         <ImageView
             android:id="@+id/btn_save"
             android:layout_width="match_parent"

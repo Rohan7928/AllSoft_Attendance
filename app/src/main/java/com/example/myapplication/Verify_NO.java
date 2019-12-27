@@ -49,12 +49,10 @@ public class Verify_NO extends AppCompatActivity {
     ProgressDialog progressDialog;
     String user_name, user_number;
     FirebaseAuth auth;
-    String time,number;
+    String time,number,type;
     Number_Name number_name;
     AlertDialog dialog;
     protected LocationManager locationManager;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +74,7 @@ public class Verify_NO extends AppCompatActivity {
         arrayList.add("7837709702");
         arrayList.add("9851700100");
         arrayList.add("9682588655");
+
     findViewById(R.id.buttonContinue).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,60 +108,8 @@ public class Verify_NO extends AppCompatActivity {
                                                 startActivity(intent);
                                                 Animatoo.animateSlideUp(Verify_NO.this);
                                                 finish();
-                                            } else {
-                                               progressDialog.dismiss();
-                                                AlertDialog.Builder mBuilder = new AlertDialog.Builder(Verify_NO.this);
-                                                View mView = getLayoutInflater().inflate(R.layout.dailog_detail, null);
-                                                final EditText mEmail = (EditText) mView.findViewById(R.id.etEmail);
-                                                final EditText mName = (EditText) mView.findViewById(R.id.etName);
-                                                final TextView mPhone = (TextView) mView.findViewById(R.id.etmobile);
-                                                final TextView mCode = (TextView) mView.findViewById(R.id.t_code);
-                                                final EditText mDesignation = (EditText) mView.findViewById(R.id.etdesignation);
-                                                mPhone.setText(mobile);
-                                                Button mLogin = (Button) mView.findViewById(R.id.btnLogin);
-                                                mBuilder.setView(mView);
-                                                dialog = mBuilder.create();
-                                                dialog.show();
-                                                mLogin.setOnClickListener(new View.OnClickListener() {
-                                                    @Override
-                                                    public void onClick(View view) {
-                                                        if(!mEmail.getText().toString().isEmpty() && !mName.getText().toString().isEmpty() && !mDesignation.getText().toString().isEmpty()){
-                                                            progressDialog.show();
-                                                            String email=mEmail.getText().toString();
-                                                            String name=mName.getText().toString();
-                                                            String code=mCode.getText().toString();
-                                                            String designation=mDesignation.getText().toString();
-                                                            number=code+mobile;
-                                                            User admin=new User(number,name,time,email,designation);
-                                                            fb.collection("Employee").document(number).set(admin).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                                @Override
-                                                                public void onSuccess(Void aVoid) {
-                                                                    dialog.dismiss();
-                                                                    progressDialog.dismiss();
-                                                                    Toast.makeText(Verify_NO.this, "Registered", Toast.LENGTH_SHORT).show();
-                                                                    Intent intent=new Intent(getApplicationContext(),OTP_Verify.class);
-                                                                    intent.putExtra("UserMobile",mobile);
-                                                                    startActivity(intent);
-                                                                    Animatoo.animateSlideUp(Verify_NO.this);
-                                                                    finish();
-                                                                }
-                                                            }).addOnFailureListener(new OnFailureListener() {
-                                                                @Override
-                                                                public void onFailure(@NonNull Exception e) {
-                                                                    progressDialog.dismiss();
-                                                                    Toast.makeText(Verify_NO.this, "Sorry", Toast.LENGTH_SHORT).show();
-                                                                }
-                                                            });
-
-                                                        }else{
-                                                            progressDialog.dismiss();
-                                                            Toast.makeText(Verify_NO.this,
-                                                                    "Fill your Details",
-                                                                    Toast.LENGTH_SHORT).show();
-                                                        }
-                                                    }
-                                                });
-
+                                            }
+                                            else {
                                             }
                                         }
 
@@ -205,7 +152,6 @@ public class Verify_NO extends AppCompatActivity {
                                             Animatoo.animateSlideLeft(Verify_NO.this);
                                             finish();
                                         } else {
-
                                             progressDialog.dismiss();
                                         }
                                     }
@@ -226,7 +172,6 @@ public class Verify_NO extends AppCompatActivity {
             }
         });
     }
-
 
     @Override
     public void onBackPressed() {

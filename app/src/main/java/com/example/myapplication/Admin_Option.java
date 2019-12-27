@@ -35,7 +35,7 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
    String name,generatedPassword;
     FirebaseFirestore fb;
    FirebaseUser firebaseUser;
-    String user_name, user_number,current;
+    String user_name, user_number,current,type;
    TextView admin;
    CardView card_1,card_2,card_3,card_4,card_5,card_6,card_7;
    ProgressDialog progressDialog;
@@ -83,32 +83,9 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
         datewise_=findViewById(R.id.date_wise);
         datewise_.setOnClickListener(this);
         progressDialog.show();
-        final ArrayList<String> arrayList = new ArrayList<String>();
-        arrayList.add("+918629870458");
-        arrayList.add("+917018793629");
-        arrayList.add("+917837709702");
-        arrayList.add("+919851700100");
-        arrayList.add("+919682588655");
+        type="isHR";
        Random random = new Random();
        generatedPassword = String.format("%04d", random.nextInt(10000));
-       if(arrayList.contains(current))
-       {
-           for (int i = 0; i <= arrayList.size(); i++) {
-               card_1.setVisibility(View.VISIBLE);
-               card_2.setVisibility(View.VISIBLE);
-               card_3.setVisibility(View.VISIBLE);
-               card_4.setVisibility(View.VISIBLE);
-               card_5.setVisibility(View.VISIBLE);
-           }
-       }
-       else
-       {
-           card_1.setVisibility(View.GONE);
-           card_2.setVisibility(View.GONE);
-           card_5.setVisibility(View.GONE);
-           card_3.setVisibility(View.VISIBLE);
-           card_4.setVisibility(View.VISIBLE);
-       }
       fb.collection("Employee")
                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
            @Override
@@ -117,12 +94,35 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
                    if (task.getResult().size() != 0) {
                        for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
                            User user = documentSnapshot.toObject(User.class);
-                          if(current.equals(user.getNum())) {
-                              user_number = user.getNum();
-                              user_name = user.getName();
-                              admin.setText("Welcome"+"\n"+user_name);
-                              progressDialog.dismiss();
-                          }
+                           String usertype=String.valueOf(user.getType());
+                           Toast.makeText(Admin_Option.this, ""+usertype, Toast.LENGTH_SHORT).show();
+                           if(current.equals(user.getNum())) {
+                               if(usertype.equals(type))
+                               {
+                                   card_1.setVisibility(View.VISIBLE);
+                                   card_2.setVisibility(View.VISIBLE);
+                                   card_3.setVisibility(View.VISIBLE);
+                                   card_4.setVisibility(View.VISIBLE);
+                                   card_5.setVisibility(View.VISIBLE);
+
+                                   user_number = user.getNum();
+                                   user_name = user.getName();
+                                   admin.setText("Welcome"+"\n"+user_name);
+                                   progressDialog.dismiss();
+
+                               }
+                               else {
+                                   card_1.setVisibility(View.GONE);
+                                   card_2.setVisibility(View.GONE);
+                                   card_5.setVisibility(View.GONE);
+                                   card_3.setVisibility(View.VISIBLE);
+                                   card_4.setVisibility(View.VISIBLE);
+                                   user_number = user.getNum();
+                                   user_name = user.getName();
+                                   admin.setText("Welcome" + "\n" + user_name);
+                                   progressDialog.dismiss();
+                               }
+                               }
                        }
 
                    } else {
@@ -186,7 +186,7 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
             case R.id.card7: {
                 auth.signOut();
                 Animatoo.animateSlideRight(Admin_Option.this);
-                this.finish();
+                finish();
                 break;
             }
             case R.id.card5:

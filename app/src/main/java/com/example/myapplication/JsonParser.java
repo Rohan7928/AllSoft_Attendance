@@ -34,7 +34,6 @@ public class JsonParser {
         try {
             jsonObject = new JSONObject(json);
             users = jsonObject.getJSONArray(KEY_USERS);
-
             uIds = new String[users.length()];
             uNames = new String[users.length()];
             uLocation = new String[users.length()];
