@@ -29,13 +29,10 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Admin_Option extends AppCompatActivity implements View.OnClickListener {
-
-   TextView checkattendnace,addtrainer,exit,emplist,markattendance,leave,shsheet;
    FirebaseAuth auth;
-   String name,generatedPassword;
-    FirebaseFirestore fb;
+   FirebaseFirestore fb;
    FirebaseUser firebaseUser;
-    String user_name, user_number,current,type;
+   String user_name, user_number,current,type,generatedPassword;
    TextView admin;
    CardView card_1,card_2,card_3,card_4,card_5,card_6,card_7;
    ProgressDialog progressDialog;
@@ -88,7 +85,6 @@ public class Admin_Option extends AppCompatActivity implements View.OnClickListe
                        for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
                            User user = documentSnapshot.toObject(User.class);
                            String usertype=String.valueOf(user.getType());
-                           Toast.makeText(Admin_Option.this, ""+usertype, Toast.LENGTH_SHORT).show();
                            if(current.equals(user.getNum())) {
                                if(usertype.equals(type))
                                {

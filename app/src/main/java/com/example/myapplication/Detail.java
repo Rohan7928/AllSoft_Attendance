@@ -155,7 +155,7 @@ public class Detail extends AppCompatActivity implements LocationListener {
         boolean connection=isNetworkAvailable();
         boolean gps=isGpsAvailable();
         if(connection && gps==true){
-            Snackbar snackbar=Snackbar.make(linearLayout,"Welcome",Snackbar.LENGTH_LONG);
+            Snackbar snackbar=Snackbar.make(linearLayout,"Welcome",Snackbar.LENGTH_SHORT);
             View snackbarView = snackbar.getView();
             snackbarView.setBackgroundColor(Color.parseColor("#932a62"));
             snackbar.show();

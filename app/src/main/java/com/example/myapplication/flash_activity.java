@@ -41,16 +41,16 @@ public class flash_activity extends AppCompatActivity {
     String phone;
     LinearLayout linearLayout;
     protected LocationManager locationManager;
-    AnimationDrawable animationDrawable;
+   // AnimationDrawable animationDrawable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash_activity);
         linearLayout=findViewById(R.id.main);
-        animationDrawable= (AnimationDrawable) linearLayout.getBackground();
-        animationDrawable.setEnterFadeDuration(500);
-        animationDrawable.setExitFadeDuration(1000);
-        animationDrawable.start();
+     //   animationDrawable= (AnimationDrawable) linearLayout.getBackground();
+       // animationDrawable.setEnterFadeDuration(1000);
+      //  animationDrawable.setExitFadeDuration(400);
+       // animationDrawable.start();
         auth = FirebaseAuth.getInstance();
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         currentUser = auth.getCurrentUser();

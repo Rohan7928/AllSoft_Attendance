@@ -97,7 +97,7 @@ FirebaseAuth auth;
         else
         {
             fb.collection("Employee").document(mobileno).collection("ID")
-                    .orderBy("num", Query.Direction.DESCENDING)
+                    .orderBy("date", Query.Direction.DESCENDING).orderBy("num", Query.Direction.DESCENDING)
                     .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -111,10 +111,9 @@ FirebaseAuth auth;
                         }else {
                            Snackbar snackbar=Snackbar.make(linearLayout,"No Attendance Marked Yet",Snackbar.LENGTH_LONG);
                             View snackbarView = snackbar.getView();
-                            snackbarView.setBackgroundColor(Color.parseColor("#FFB0D9B9"));
+                            snackbarView.setBackgroundColor(Color.parseColor("#932a62"));
                            snackbar.show();
                             }
-
                     }
                 }
             });
