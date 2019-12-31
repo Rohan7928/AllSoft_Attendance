@@ -52,7 +52,6 @@
             android:layout_marginTop="20dp"
             android:digits="0123456789"
             android:textColor="@color/black"
-            android:fontFamily="@font/supercreative"
             android:textSize="@dimen/text_20sp"
             android:drawableLeft="@drawable/ic_phone"
             android:drawablePadding="30dp"
@@ -73,8 +72,9 @@
             android:layout_marginTop="25dp"
             android:background="@drawable/roundbutton"
             android:text="Continue"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:textAllCaps="false"
-            android:textColor="@color/colorPrimaryDark" />
+            android:textColor="@color/white" />
 
 
 

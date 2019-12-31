@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/refresh_out"
-    android:background="@drawable/go_bg"
+    android:background="@android:color/white"
       tools:context=".Gps">
     <RelativeLayout
         android:layout_width="match_parent"

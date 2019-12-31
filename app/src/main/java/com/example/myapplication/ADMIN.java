@@ -13,6 +13,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,12 +30,12 @@ import java.util.Calendar;
 public class ADMIN extends AppCompatActivity {
    TextView txtcode;
    EditText etnumber,etname,etemail,etdesignation;
-   ImageView btnasave;
+   Button btnasave;
     FirebaseFirestore fb;
     ProgressDialog progressDialog;
     String num,user,time,cd,email,designation,type;
     CheckBox isHR;
-    RelativeLayout relativeLayout;
+    LinearLayout relativeLayout;
     @Override
     public void onBackPressed() {
         Intent intent=new Intent(getApplicationContext(),Admin_Option.class);

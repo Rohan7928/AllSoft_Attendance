@@ -47,7 +47,6 @@ class Adepter extends RecyclerView.Adapter<Adepter.Myholder> {
         holder.txtemail.setText(user.email);
         holder.txtnum.setText(String.valueOf(user.num));
         holder.txtname.setText(user.name);
-        Toast.makeText(context, String.valueOf(user.num), Toast.LENGTH_SHORT).show();
         holder.showattendance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,8 +83,8 @@ class Adepter extends RecyclerView.Adapter<Adepter.Myholder> {
     }
     public class Myholder extends RecyclerView.ViewHolder {
         TextView txtemail, txtnum, txtname;
-        ImageView imgcall;
-        Button showattendance;
+        ImageView imgcall,showattendance;
+
 
         public Myholder(@NonNull View itemView) {
             super(itemView);

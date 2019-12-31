@@ -33,7 +33,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 
 public class flash_activity extends AppCompatActivity {
-    private static int Timeout = 2000;
+    private static int Timeout = 3000;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     FirebaseAuth auth;
     FirebaseUser user;

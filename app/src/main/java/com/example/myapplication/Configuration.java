@@ -3,7 +3,7 @@ package com.example.myapplication;
 
 public class Configuration {
 
-    public static final String APP_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbziBD4BCn-zZbiMV8krS6BIM2oRv3aQ4eAfX8qOxFLBIKvonvJN/exec";
+    public static final String APP_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwunkOVSia8gfGIFhKyQwPyikV4k0nm6F3SEQwoqjtXQ9JzZrSa/exec";
     public static final String ADD_USER_URL = APP_SCRIPT_WEB_APP_URL;
     public static final String LIST_USER_URL = APP_SCRIPT_WEB_APP_URL+"?action=readAll";
 

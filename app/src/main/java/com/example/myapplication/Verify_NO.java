@@ -69,11 +69,9 @@ public class Verify_NO extends AppCompatActivity {
         SimpleDateFormat mdformat = new SimpleDateFormat("HH:mm a");
         time =mdformat.format(calendar.getTime());
         final ArrayList<String> arrayList = new ArrayList<String>();
-        arrayList.add("8629870458");
         arrayList.add("7018793629");
         arrayList.add("7837709702");
-        arrayList.add("9851700100");
-        arrayList.add("9682588655");
+        arrayList.add("7814170405");
 
     findViewById(R.id.buttonContinue).setOnClickListener(new View.OnClickListener() {
             @Override

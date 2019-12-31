@@ -157,13 +157,13 @@ public class Detail extends AppCompatActivity implements LocationListener {
         if(connection && gps==true){
             Snackbar snackbar=Snackbar.make(linearLayout,"Welcome",Snackbar.LENGTH_SHORT);
             View snackbarView = snackbar.getView();
-            snackbarView.setBackgroundColor(Color.parseColor("#932a62"));
+            snackbarView.setBackgroundColor(Color.parseColor("#00B9F5"));
             snackbar.show();
            }
         else{
             Snackbar snackbar=Snackbar.make(linearLayout,"Check Your GPS or Internet Connetcion",Snackbar.LENGTH_LONG);
             View snackbarView = snackbar.getView();
-            snackbarView.setBackgroundColor(Color.parseColor("#932a62"));
+            snackbarView.setBackgroundColor(Color.parseColor("#00B9F5"));
             snackbar.show();
             startActivity(new Intent(getApplicationContext(),Gps.class));
 
@@ -600,7 +600,7 @@ public class Detail extends AppCompatActivity implements LocationListener {
 
             try{
                 //Change your web app deployed URL or u can use this for attributes (name, country)
-                URL url = new URL("https://script.google.com/macros/s/AKfycbw0V5VPjI8cBtlZDAYFjJX2xgbpSkBy-7iVd639CIaoPI7irUVB/exec");
+                URL url = new URL("https://script.google.com/macros/s/AKfycbwunkOVSia8gfGIFhKyQwPyikV4k0nm6F3SEQwoqjtXQ9JzZrSa/exec");
 
                 JSONObject postDataParams = new JSONObject();
 
@@ -610,7 +610,7 @@ public class Detail extends AppCompatActivity implements LocationListener {
 
                 //    String usn = Integer.toString(i);
 
-                String id= "1rjk9fkzleTjWEMryfAkT5TzNY40zzU_I-Hm5jdZQcsk";
+                String id= "1Ec_kMJFfpfU0yY0dN1mTc41fvPLUmMoD2eQBjqdiALs";
 
                 postDataParams.put("Name",user);
                 postDataParams.put("Country",log);

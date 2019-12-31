@@ -111,7 +111,7 @@ FirebaseAuth auth;
                         }else {
                            Snackbar snackbar=Snackbar.make(linearLayout,"No Attendance Marked Yet",Snackbar.LENGTH_LONG);
                             View snackbarView = snackbar.getView();
-                            snackbarView.setBackgroundColor(Color.parseColor("#932a62"));
+                            snackbarView.setBackgroundColor(Color.parseColor("#00B9F5"));
                            snackbar.show();
                             }
                     }
