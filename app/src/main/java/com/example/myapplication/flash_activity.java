@@ -18,12 +18,16 @@ import android.graphics.drawable.AnimationDrawable;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.media.Image;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -40,21 +44,22 @@ public class flash_activity extends AppCompatActivity {
     FirebaseUser currentUser;
     String phone;
     LinearLayout linearLayout;
+    ImageView imageView;
     protected LocationManager locationManager;
-   // AnimationDrawable animationDrawable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash_activity);
         linearLayout=findViewById(R.id.main);
-     //   animationDrawable= (AnimationDrawable) linearLayout.getBackground();
-       // animationDrawable.setEnterFadeDuration(1000);
-      //  animationDrawable.setExitFadeDuration(400);
-       // animationDrawable.start();
         auth = FirebaseAuth.getInstance();
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         currentUser = auth.getCurrentUser();
         boolean connection=isNetworkAvailable();
+        imageView=findViewById(R.id.logo_);
+        Animation animation;
+        animation = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.blink);
+        imageView.startAnimation(animation);
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) && connection)
         {

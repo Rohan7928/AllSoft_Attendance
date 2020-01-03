@@ -5,7 +5,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"
     defaultConfig {
-        applicationId "com.example.myapplication"
+        applicationId "com.alls.myapplication"
         minSdkVersion 21
         multiDexEnabled true
         targetSdkVersion 29

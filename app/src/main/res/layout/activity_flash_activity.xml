@@ -6,10 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".flash_activity"
     android:gravity="center"
+    android:orientation="vertical"
     android:background="@android:color/white"
     android:id="@+id/main">
-<pl.droidsonroids.gif.GifImageView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:src="@drawable/gio"/>
-</LinearLayout>
+
+    <ImageView
+        android:id="@+id/logo_"
+
+        android:layout_width="554dp"
+        android:layout_height="542dp"
+        android:gravity="center"
+        android:src="@drawable/final_splash" />
+
+   </LinearLayout>

@@ -141,7 +141,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/notice"></ImageView>
+                    android:src="@drawable/splash"></ImageView>
                 <TextView
                     android:id="@+id/hr_attendance"
                     android:layout_above="@id/bt_log"
@@ -264,7 +264,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
-                    android:backgroundTint="@color/black"
+                    android:backgroundTint="@android:color/holo_red_dark"
                     android:src="@drawable/logout"></ImageView>
                 <TextView
                     android:id="@+id/bt_log"
@@ -275,7 +275,7 @@
                     android:backgroundTint="@color/white"
                     android:fontFamily="@font/supercreative"
                     android:text="Logout"
-                    android:textColor="@color/black"
+                    android:textColor="@android:color/holo_red_dark"
                     android:textSize="14sp"
                     />
 
@@ -346,7 +346,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_cloud_download_black_24dp"></ImageView>
+                    android:src="@drawable/notice"></ImageView>
                 <TextView
 
                     android:layout_above="@id/hr_attendance"

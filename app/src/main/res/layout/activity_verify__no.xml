@@ -10,13 +10,13 @@
     tools:context=".Verify_NO">
 
 
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center"
-            android:background="@drawable/ic_logo" />
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="152dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:background="@drawable/splash" />
 
 
 

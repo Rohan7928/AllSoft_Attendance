@@ -18,6 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alls.myapplication.R;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -105,7 +106,7 @@ public class ADMIN extends AppCompatActivity {
                      @Override
                      public void onFailure(@NonNull Exception e) {
                          progressDialog.dismiss();
-                         Toast.makeText(ADMIN.this, "Sorry", Toast.LENGTH_SHORT).show();
+                         Toast.makeText(ADMIN.this, "Invalid Details", Toast.LENGTH_SHORT).show();
                      }
                  });
              }

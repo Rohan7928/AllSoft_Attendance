@@ -9,6 +9,7 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import com.alls.myapplication.R;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;

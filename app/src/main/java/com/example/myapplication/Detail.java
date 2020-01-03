@@ -77,7 +77,10 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -121,6 +124,7 @@ public class Detail extends AppCompatActivity implements LocationListener {
     private Uri capImageURI;
     String user,mobilno, generatedPassword;
     String userImage;
+    String s;
     Bitmap bitmap,rbitmap;
 
     @Override
@@ -429,12 +433,15 @@ public class Detail extends AppCompatActivity implements LocationListener {
             did.setText(id);
             Calendar calendar = Calendar.getInstance();
             SimpleDateFormat date = new SimpleDateFormat("dd.MM.yyyy");
-            SimpleDateFormat mdformat = new SimpleDateFormat("HH:mm:ss");
-            SimpleDateFormat time = new SimpleDateFormat("HH:mm a");
+            SimpleDateFormat mdformat = new SimpleDateFormat("HH:mm a");
+            SimpleDateFormat time = new SimpleDateFormat("HH:MM a");
             currentDate = date.format(new Date());
-            currentDateandTime = time.format(calendar.getTime());
-            currentimev.setText(currentDateandTime);
+            currentDateandTime = mdformat.format(calendar.getTime());
+            currentimev.setText(currentDateandTime) ;
             useraddress.setText(add);
+
+
+
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), capImageURI);
             } catch (Exception e) {

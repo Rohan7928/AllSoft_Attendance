@@ -58,7 +58,6 @@ public class UsersAdepter extends RecyclerView.Adapter<UsersAdepter.Myholder> {
         int siz=uId.length;
         for(int i=0;i<siz;i++)
         {
-            Toast.makeText(context, "Size"+siz, Toast.LENGTH_SHORT).show();
             if(Arrays.asList(uId[position]).contains(date))
             {
                         holder.cardView.setVisibility(View.VISIBLE);
@@ -85,13 +84,7 @@ public class UsersAdepter extends RecyclerView.Adapter<UsersAdepter.Myholder> {
                       {
                           Toast.makeText(context, "no", Toast.LENGTH_SHORT).show();
                       }
-              /* holder.urid.setText(userdate);
-                holder.urname.setText(String.valueOf(uNames[position]));
-                holder.urtype.setText(String.valueOf(uType[position]));
-                holder.urtime.setText(String.valueOf(uTime[position]));
 
-               Toast.makeText(context, "Value"+userdate, Toast.LENGTH_SHORT).show();
-*/
             }        else {
                c++;
                 Toast.makeText(context, "No Date Found"+c, Toast.LENGTH_SHORT).show();

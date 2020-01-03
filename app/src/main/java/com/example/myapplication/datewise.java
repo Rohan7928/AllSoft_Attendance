@@ -1,11 +1,14 @@
 package com.example.myapplication;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.icu.text.SimpleDateFormat;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.CalendarView;
 import android.widget.ListView;
@@ -42,10 +45,27 @@ public class datewise extends AppCompatActivity {
         RecyclerView.LayoutManager manager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
         listView.setLayoutManager(manager);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2)
             {
-                msg =i2+"."+(i1 + 1)+"."+i;
+                i1=i1+1;
+                String month="0";
+                if(i1<10){
+                    month=month.concat(String.valueOf(i1));
+                }else{
+                    month=String.valueOf(i1);
+                }
+
+                String day="0";
+                if(i2<10){
+                    day=day.concat(String.valueOf(i2));
+                }else{
+                    day=String.valueOf(i2);
+                }
+
+                msg=day+"."+month+"."+i;
+               // msg =i2+"."+(i1 + 1)+"."+i;
                 Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
                 sendRequest();
             }
