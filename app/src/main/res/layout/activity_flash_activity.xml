@@ -13,8 +13,8 @@
     <ImageView
         android:id="@+id/logo_"
 
-        android:layout_width="554dp"
-        android:layout_height="542dp"
+        android:layout_width="322dp"
+        android:layout_height="432dp"
         android:gravity="center"
         android:src="@drawable/final_splash" />
 

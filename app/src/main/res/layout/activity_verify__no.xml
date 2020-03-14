@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:paddingTop="50dp"
+    android:id="@+id/verify"
     tools:context=".Verify_NO">
 
 

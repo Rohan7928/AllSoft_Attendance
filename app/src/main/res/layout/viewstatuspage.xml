@@ -13,6 +13,7 @@
             android:layout_marginLeft="3dp"
             android:layout_marginRight="3dp"
             android:weightSum="6"
+        app:cardCornerRadius="10dp"
             android:layout_height="wrap_content" >
 <RelativeLayout
     android:layout_width="wrap_content"

@@ -5,49 +5,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:elevation="5dp"
-    tools:context=".datewise">
-    <CalendarView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/calenderView"/>
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:backgroundTint="@color/colorAccent"
-        android:layout_height="wrap_content">
+    android:weightSum="16"
 
-        <TextView
+    tools:context=".datewise">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="3dp"
+        android:background="@drawable/main"
+        android:backgroundTint="@color/colorPrimaryDark">
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name"
-            android:layout_marginRight="80dp"
+            android:id="@+id/show_hide"
+            android:layout_centerInParent="true"
             android:textStyle="bold"
-            android:textColor="@color/white"
             android:textSize="@dimen/text_20sp"
-            android:layout_gravity="start"/>
-        <TextView
+            android:textColor="@color/white"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:text="Select Date"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:id="@+id/cal"
+
+        android:visibility="gone"
+        android:layout_weight="7"
+        android:background="@drawable/calender">
+        <CalendarView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="IN"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_20sp"
-            android:layout_gravity="center"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="OUT"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:layout_marginRight="24dp"
-            android:textSize="@dimen/text_20sp"
-            android:layout_gravity="right"/>
-    </androidx.cardview.widget.CardView>
+            android:layout_gravity="center"
+            android:id="@+id/calenderView"/>
+    </LinearLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:padding="5dp"
         android:orientation="vertical"
+        android:layout_weight="15"
         android:id="@+id/_listview"/>
 </LinearLayout>
